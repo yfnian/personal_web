@@ -206,6 +206,44 @@
 
 
 
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-180589809-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url, target) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           if (target !== '_blank') {
+             document.location = url;
+           }
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target, event.target.getAttribute('target'));  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'UA-180589809-2', {});
+
+  
+  document.addEventListener('click', onClickCallback, false);
+</script>
+
+
   
 
 
@@ -671,7 +709,7 @@
         <h3>Interests</h3>
         <ul class="ul-interests">
           
-          <li>Behavior Economics</li>
+          <li>Behavioral Economics</li>
           
           <li>Experimental Economics</li>
           
@@ -1494,29 +1532,32 @@
       
     </div>
     <div class="col-12 col-lg-8">
-      <p>I have been the teaching assistant for the following courses:</p>
+      <h3 id="i-have-been-the-teaching-assistant-for-the-following-courses">I have been the teaching assistant for the following courses:</h3>
 <ul>
-<li>AGEC2403 Quantitative Tools for Agribusiness (<em>Undergraduate course</em>, Instructor: Dr. Qiuqiong Huang, University of Arkansas, 2016 Fall and 2017 Fall)</li>
+<li><strong>AGEC2403 Quantitative Tools for Agribusiness</strong> (<em>Undergraduate course</em>, Instructor: Dr. Qiuqiong Huang, University of Arkansas, 2016 Fall and 2017 Fall)</li>
 </ul>
 <!-- [Syllabus](files/CV_Yefan_Nian.pdf)  -->
 <ul>
 <li>
-<p>AEB3510 Quantitative Methods in Food and Resource Economics (<em>Undergraduate course</em>, Instructor: Dr. Luis Moisés Peña Lévano and Dr. Misti Sharp, University of Florida, 2018 Fall, 2019 Spring, and 2019 Fall) 
+<p><strong>AEB3510 Quantitative Methods in Food and Resource Economics</strong> (<em>Undergraduate course</em>, Instructor: Dr. Luis Moisés Peña Lévano and Dr. Misti Sharp, University of Florida, 2018 Fall, 2019 Spring, and 2019 Fall) 
 <a href="files/teaching/AEB3510.pdf">Syllabus</a></p>
 </li>
 <li>
-<p>AEB4342 Agribusiness and Food Marketing and Management (<em>Undergraduate course</em>, Instructor: Dr. Bi Xiang, University of Florida, 2020 Spring) 
+<p><strong>AEB4342 Agribusiness and Food Marketing and Management</strong> (<em>Undergraduate course</em>, Instructor: Dr. Bi Xiang, University of Florida, 2020 Spring) 
 <a href="files/teaching/AEB4342.pdf">Syllabus</a></p>
 </li>
+<li>
+<p><strong>AEB3341 Selling Strategically</strong> (<em>Undergraduate course</em>, Instructor: Dr. John Lai, University of Florida, 2020 Fall and 2021 Spring)</p>
+</li>
 </ul>
-<p>I have been guest lecture for the following courses:</p>
+<h3 id="i-have-been-guest-lecture-for-the-following-courses">I have been guest lecture for the following courses:</h3>
 <ul>
 <li>
-<p>AEB3510 Quantitative Methods in Food and Resource Economics (<em>Undergraduate course</em>, University of Florida, 2018 Fall)</p>
+<p><strong>AEB3510 Quantitative Methods in Food and Resource Economics</strong> (<em>Undergraduate course</em>, University of Florida, 2018 Fall)</p>
 <p>&ndash; Topic: Using Excel Solver to solve optimization questions</p>
 </li>
 <li>
-<p>AEB6553 Elements of Econometrics (<em>Graduate course</em>, University of Florida, 2020 Spring)</p>
+<p><strong>AEB6553 Elements of Econometrics</strong> (<em>Graduate course</em>, University of Florida, 2020 Spring)</p>
 <p>&ndash; Topic: Hypothesis Testing</p>
 </li>
 </ul>
@@ -1763,7 +1804,8 @@
       
     </div>
     <div class="col-12 col-lg-8">
-      <ul>
+      <p>Ofelia Anzola Memorial Scholarship, University of Florida, 2020 Spring</p>
+<ul>
 <li>
 <p>Phillip L. Herndon Endowment in Economics, University of Florida, 2020 Spring</p>
 </li>
@@ -1771,10 +1813,10 @@
 <p>Harold B. Clark Award, University of Florida, 2019 Spring</p>
 </li>
 <li>
-<p>Certificate of Teaching with Technology, University of Flroida, 2019 Spring</p>
+<p>Certificate of Teaching with Technology, University of Florida, 2019 Spring</p>
 </li>
 <li>
-<p>Outstanding Grdaute Student, University of Arkansas, 2018 Spring</p>
+<p>Outstanding Gradate Student, University of Arkansas, 2018 Spring</p>
 </li>
 <li>
 <p>AAEA Travel Grant, 2019 Summer and 2017 Summer</p>
